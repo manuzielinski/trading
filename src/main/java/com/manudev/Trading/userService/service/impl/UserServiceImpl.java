@@ -2,7 +2,7 @@ package com.manudev.Trading.userService.service.impl;
 
 import com.manudev.Trading.userService.dto.UserDTO;
 import com.manudev.Trading.userService.mapper.UserMapper;
-import com.manudev.Trading.userService.model.User;
+import com.manudev.Trading.userService.model.UserEntity;
 import com.manudev.Trading.userService.repository.UserRepository;
 import com.manudev.Trading.userService.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserDTO> listAllUsers() {
-        List<User> users = userRepository.findAll();
+        List<UserEntity> users = userRepository.findAll();
         return users.stream()
                 .map(userMapper::userToDTO)
                 .collect(Collectors.toList());
@@ -30,14 +30,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO getUserByID(Long userID) {
-        User user = userRepository.findById(userID)
+        UserEntity user = userRepository.findById(userID)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
         return userMapper.userToDTO(user);
     }
 
     @Override
     public UserDTO createUser(UserDTO userDTO) {
-        User user = userMapper.dtoToUser(userDTO);
+        UserEntity user = userMapper.dtoToUser(userDTO);
         userRepository.save(user);
         return userMapper.userToDTO(user);
     }
@@ -45,17 +45,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO updateUser(Long userID, UserDTO userDTO) {
         // first, we're going to find the old user:
-        User oldUser = userRepository.findById(userID)
+        UserEntity oldUser = userRepository.findById(userID)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
         // later, locate the new one
-        User updatedUser = userMapper.dtoToUser(userDTO);
+        UserEntity updatedUser = userMapper.dtoToUser(userDTO);
         updatedUser.setUserID(oldUser.getUserID());
         return userMapper.userToDTO(updatedUser);
     }
 
     @Override
     public void deleteUser(Long userID) {
-        User user = userRepository.findById(userID)
+        UserEntity user = userRepository.findById(userID)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
         user.setActive(false);
         userRepository.save(user);

@@ -18,6 +18,6 @@ public class AuthenticationController {
     private UserDetailsServiceImpl userDetailsService;
 
     public ResponseEntity<AuthResponseDTO> Login(@RequestBody @Valid AuthLoginRequestDTO userRequest) {
-        return new ResponseEntity<>(this.userDetailsService.(userRequest), HttpStatus.OK);
+        return new ResponseEntity<>(this.userDetailsService.loginUser(userRequest), HttpStatus.OK);
     }
 }
