@@ -35,9 +35,13 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(http -> {
                     // endpoints publicos
-                    http.requestMatchers(HttpMethod.GET, "/auth/get").permitAll();
+                    http.requestMatchers(HttpMethod.POST, "/method/**").permitAll();
                     //endpoints privados
-                    http.requestMatchers(HttpMethod.POST, "/auth/post").hasAnyRole("ADMIN", "DEVELOPER");
+                    http.requestMatchers(HttpMethod.POST, "/method/post").hasAuthority("CREATE");
+                    http.requestMatchers(HttpMethod.GET, "/method/get").hasAnyRole("READ");
+                    http.requestMatchers(HttpMethod.PUT, "/method/put").hasAnyRole("UPDATE");
+                    http.requestMatchers(HttpMethod.DELETE, "/method/delete").hasAnyRole("DELETE");
+
                     //config el resto de endpoints - NO ESPECIFICADOS
                     http.anyRequest().denyAll();
                 })
@@ -50,7 +54,7 @@ public class SecurityConfig {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         manager.createUser(User.withUsername("manuel")
                 .password("1234")
-                .roles("CUSTOMER")
+                .roles("USER")
                 .build());
         return manager;
     }
