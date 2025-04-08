@@ -1,24 +1,21 @@
 package com.manudev.Trading.coinService.service;
 
-import com.manudev.Trading.coinService.coinRepository.CoinRepository;
 import com.manudev.Trading.coinService.model.Coin;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.List;
 
 public interface CoinService {
 
-    List<Coin> getCoinList(int page);
+    List<Coin> getCoinList(int page) throws Exception;
 
-    String getMatketChart(String coinId, int days);
+    String getMatketChart(String coinId, int days) throws Exception;
 
-    String getCoindDetails(String coinId);
+    String getCoinDetails(String coinId) throws Exception;
 
-    Coin findById(String coinId);
+    Coin findById(String coinId) throws Exception;
 
-    String searchCoin(String keyword);
+    String searchCoin(String keyword) throws Exception;
 
-    String getTop50CoinsByMarketCapRank();
+    String getTop50CoinsByMarketCapRank() throws Exception;
 
-    String GetTreadingCoins();
+    String GetTreadingCoins() throws Exception;
 }
