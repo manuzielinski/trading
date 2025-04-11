@@ -7,7 +7,7 @@ import com.manudev.Trading.userService.model.RoleEntity;
 import com.manudev.Trading.userService.model.UserEntity;
 import com.manudev.Trading.userService.repository.RoleRepository;
 import com.manudev.Trading.userService.repository.UserRepository;
-import com.manudev.Trading.userService.security.JwtUtil;
+import com.manudev.Trading.userService.config.filter.JwtUtil;
 import com.manudev.Trading.userService.service.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;

@@ -7,7 +7,7 @@ public interface CoinService {
 
     List<Coin> getCoinList(int page) throws Exception;
 
-    String getMatketChart(String coinId, int days) throws Exception;
+    String getMarketChart(String coinId, int days) throws Exception;
 
     String getCoinDetails(String coinId) throws Exception;
 
@@ -17,5 +17,5 @@ public interface CoinService {
 
     String getTop50CoinsByMarketCapRank() throws Exception;
 
-    String GetTreadingCoins() throws Exception;
+    String getTreadingCoins() throws Exception;
 }

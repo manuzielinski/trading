@@ -12,4 +12,6 @@ public interface UserService {
     UserDTO createUser(UserDTO userDTO);
     UserDTO updateUser(Long userID, UserDTO userDTO);
     void deleteUser(Long userID);
+    UserDTO findUserProfileByJwt(String jwt);
+    UserDTO findUserByEmail(String email);
 }

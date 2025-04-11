@@ -60,4 +60,15 @@ public class UserServiceImpl implements UserService {
         user.setActive(false);
         userRepository.save(user);
     }
+
+    @Override
+    public UserDTO findUserProfileByJwt(String jwt) {
+        String email = JwtProvi
+        return null;
+    }
+
+    @Override
+    public UserDTO findUserByEmail(String email) {
+        return null;
+    }
 }

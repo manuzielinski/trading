@@ -1,7 +1,6 @@
 package com.manudev.Trading.userService.config.filter;
 
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.manudev.Trading.userService.security.JwtUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
