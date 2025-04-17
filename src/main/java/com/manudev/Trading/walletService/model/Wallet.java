@@ -20,5 +20,4 @@ public class Wallet {
     // en este punto se utiliza bid decimal debido a que se necesita una presicion absoluta
     private BigDecimal balance;
 
-
 }

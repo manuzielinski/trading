@@ -1,8 +1,8 @@
 package com.manudev.Trading.walletService.service.impl;
 
 import com.manudev.Trading.userService.model.UserEntity;
-import com.manudev.Trading.walletService.domain.OrderType;
-import com.manudev.Trading.walletService.model.Order;
+import com.manudev.Trading.OrderService.domain.OrderType;
+import com.manudev.Trading.OrderService.model.Order;
 import com.manudev.Trading.walletService.model.Wallet;
 import com.manudev.Trading.walletService.repository.WalletRepository;
 import com.manudev.Trading.walletService.service.WalletService;
